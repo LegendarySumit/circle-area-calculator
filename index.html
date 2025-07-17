@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Circle Area Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #72627d;
+    }
+
+    .calculator {
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input {
+      padding: 10px;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #0077ff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005dd1;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #007700;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h2>Circle Area Calculator</h2>
+    <input type="number" id="radiusInput" placeholder="Enter radius" min="0"/>
+    <br />
+    <button onclick="calculateArea()">Calculate</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function calculateArea() {
+      const radius = document.getElementById("radiusInput").value;
+      const resultElement = document.getElementById("result");
+
+      if (radius === "" || radius <= 0) {
+        resultElement.innerHTML = "<span class='error'>Please enter a valid positive radius.</span>";
+        return;
+      }
+
+      const area = Math.PI * radius * radius;
+      resultElement.textContent = `Area of the circle: ${area.toFixed(2)} units²`;
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
